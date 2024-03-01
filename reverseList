@@ -1,0 +1,25 @@
+class reverseLists {
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        ListNode first = new ListNode(2);
+        head.next = first;
+        ListNode second = new ListNode(3);
+        first.next = second;
+        ListNode tail = new ListNode(4);
+        second.next = tail;
+        tail.next = null;
+        ListNode newNode = reverseList(head);
+        while(newNode != null) {
+            System.out.println(newNode.value);
+            newHead = newNode.next;
+        }
+    }
+	
+	 public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode res = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return res;
+    }
+}
