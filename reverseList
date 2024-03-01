@@ -9,7 +9,7 @@ class reverseLists {
         second.next = tail;
         tail.next = null;
         ListNode newNode = reverseList(head);
-        while(newHead != null) {
+        while(newNode != null) {
             System.out.println(newNode.value);
             newHead = newNode.next;
         }
