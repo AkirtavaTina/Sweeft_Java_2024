@@ -1,0 +1,27 @@
+class calculation {
+    public static void main(String[] args) {
+        System.out.println(calculate("5+20-8+5"));
+    }
+	
+    public static int calculate(String s) {
+    	int result = 0;
+    	char ch = '+', character;
+    	String num = "";
+    	for (int i = 0; i < s.length(); i++) {
+    		character = s.charAt(i);
+    		if(Character.isDigit(character))  num += character;
+    		else if (character == '+') {
+    			ch = '+';
+    			continue;
+    		} else if (character == '-') {
+    			ch = '-';
+    			continue;
+    		}
+    		if (i + 1 < s.length() && Character.isDigit(s.charAt(i+1))) continue;
+    		if (ch == '+')     result += Integer.valueOf(num);
+    		else if (ch == '-')     result -= Integer.valueOf(num);
+    		num = "";
+    	}
+    	return result;
+    }
+}
