@@ -1,3 +1,11 @@
+class ListNode{
+    ListNode next;
+    int value;
+    ListNode(int value){
+	this.value = value;
+    }
+}
+
 class reverseLists {
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
@@ -14,8 +22,7 @@ class reverseLists {
             newHead = newNode.next;
         }
     }
-	
-	 public ListNode reverseList(ListNode head) {
+     public static ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) return head;
         ListNode res = reverseList(head.next);
         head.next.next = head;
