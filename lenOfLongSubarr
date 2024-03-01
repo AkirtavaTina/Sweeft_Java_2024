@@ -1,0 +1,23 @@
+class subarray {
+    public static void main(String[] args) {
+        int arr[] = {6,2,2,3,4,1};
+        System.out.println(lenOfLongSubarr(arr,8));
+    }
+    
+    public static int lenOfLongSubarr(int[] array, int k){
+        int[] old = new int[1];
+        int now = 0;
+        helper(array, k, old, 0, now);
+        return old[0];
+    }
+    
+    public static void helper(int[] array, int k , int[] old, int index, int now){
+        if(index >= array.length || k < 0) return; 
+        if(k == 0) {
+              if(old[0] < now) old[0] = now;
+              return;
+        }
+        helper(array, k - array[index], old, index+1, now+1);
+        helper(array, k, old, index+1, now);
+    }
+}
