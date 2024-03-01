@@ -1,0 +1,22 @@
+class sequence {
+    public static void main(String[] args) {
+        int arr[] = {5,1,22,25,6,-1,8,10};
+        int sequence[] = {1,1,6,-1,10};
+        System.out.println(isValidSequence(arr, sequence));
+    }
+    
+    public static boolean isValidSequence(int[] array, int[] sequence){
+        int count = 0, num;
+        for(int i = 0; i < sequence.length; i++){
+            for(int j = 0; j < array.length; j++){
+                num = sequence[i];
+                if(num == array[j]){
+                    i++;
+                    count++;
+                } 
+            }
+        }
+        if(count == sequence.length) return true;
+        return false;
+    }
+}
